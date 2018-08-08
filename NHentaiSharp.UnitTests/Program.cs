@@ -8,7 +8,9 @@ namespace NHentaiSharp.UnitTests
         [Fact]
         public void BasicTest()
         {
-            new NHentaiClient();
+            new SearchClient()
+                .WithTags("school swimsuit")
+                .WithPage(2);
         }
     }
 }
