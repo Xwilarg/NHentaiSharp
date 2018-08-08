@@ -1,0 +1,13 @@
+image: Visual Studio 2017
+
+before_build:
+- nuget restore
+- choco install opencover.portable
+- choco install codecov
+
+build:
+  project: NHentaiSharp.sln
+
+test_script:
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\NHentaiSharp.UnitTests\bin\Debug\NHentaiSharp.UnitTests.dll -noshadow" -filter:"+[NHentaiSharp*]* -[NHentaiSharp.UnitTests*]*" -output:".\coverage.xml"
+- codecov -f "coverage.xml"

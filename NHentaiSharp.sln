@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHentaiSharp", "NHentaiSharp\NHentaiSharp.csproj", "{1DBD28E7-732E-4FB8-B0F1-14F6EB00B3FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHentaiSharp.UnitTests", "NHentaiSharp.UnitTests\NHentaiSharp.UnitTests.csproj", "{6FEF403F-C475-46EF-B763-7CD96B0D782E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DBD28E7-732E-4FB8-B0F1-14F6EB00B3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBD28E7-732E-4FB8-B0F1-14F6EB00B3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBD28E7-732E-4FB8-B0F1-14F6EB00B3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBD28E7-732E-4FB8-B0F1-14F6EB00B3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FEF403F-C475-46EF-B763-7CD96B0D782E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FEF403F-C475-46EF-B763-7CD96B0D782E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FEF403F-C475-46EF-B763-7CD96B0D782E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FEF403F-C475-46EF-B763-7CD96B0D782E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {332B071F-2230-4EA7-B2AC-B8F0EA4C33B0}
+	EndGlobalSection
+EndGlobal
