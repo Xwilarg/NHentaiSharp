@@ -1,8 +1,8 @@
 ﻿namespace NHentaiSharp.Search
 {
-    public struct TagResult
+    public struct Tag
     {
-        public TagResult(dynamic json)
+        public Tag(dynamic json)
         {
             id = json.id;
             name = json.name;
