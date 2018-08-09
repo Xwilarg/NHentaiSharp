@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\SearchClient.cs" />
-    <Compile Include="Core\SearchResult.cs" />
+    <Compile Include="Exception\EmptySearchException.cs" />
+    <Compile Include="Search\TagType.cs" />
+    <Compile Include="Search\TagResult.cs" />
+    <Compile Include="Search\PageResult.cs" />
+    <Compile Include="Search\SearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

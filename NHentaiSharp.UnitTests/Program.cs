@@ -1,4 +1,5 @@
 ﻿using NHentaiSharp.Core;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace NHentaiSharp.UnitTests
@@ -6,11 +7,12 @@ namespace NHentaiSharp.UnitTests
     public class Program
     {
         [Fact]
-        public void BasicTest()
+        public async Task BasicTest()
         {
-            new SearchClient()
-                .WithTags("school swimsuit")
-                .WithPage(2);
+            await new SearchClient()
+                .WithTags("school swimsuit", "loli", "full color")
+                .WithPage(2)
+                .ExecuteAsync();
         }
     }
 }

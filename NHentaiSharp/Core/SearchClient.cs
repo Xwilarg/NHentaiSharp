@@ -24,13 +24,22 @@ namespace NHentaiSharp.Core
             return (this);
         }
 
-        public async Task<SearchResult> ExecuteAsync()
+        public SearchClient WithMax(int? max)
         {
+            this.max = max;
+            return (this);
+        }
+
+        public async Task<Search.SearchResult> ExecuteAsync()
+        {
+            if (string.IsNullOrEmpty(tags))
+                throw new Exception.EmptySearchException();
             using (HttpClient hc = new HttpClient())
-                return (new SearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search")).Content.ReadAsStringAsync())));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search?query=" + tags + "&page=" + page)).Content.ReadAsStringAsync())));
         }
 
         private int page;
         private string tags;
+        private int? max;
     }
 }
