@@ -2,10 +2,14 @@
 {
     public struct SearchResult
     {
-        public SearchResult(dynamic json)
+        public SearchResult(dynamic json, int? max)
         {
-            elements = new GalleryElement[json.result.Count];
-            for (int i = 0; i < json.result.Count; i++)
+            if (!max.HasValue || max > json.result.Count)
+                max = json.result.Count;
+            if (json.result.Count < max)
+                max = json.result.Count;
+            elements = new GalleryElement[max.Value];
+            for (int i = 0; i < max; i++)
                 elements[i] = new GalleryElement(json.result[i]);
             numPages = json.num_pages;
             numPerPage = json.per_page;

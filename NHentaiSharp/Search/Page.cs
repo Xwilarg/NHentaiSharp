@@ -4,13 +4,25 @@
     {
         public Page(dynamic json)
         {
-            t = json.t;
+            switch (json.t.ToString())
+            {
+                case "j":
+                    format = PageFormat.JPG;
+                    break;
+
+                case "p":
+                    format = PageFormat.PNG;
+                    break;
+
+                default:
+                    throw new System.ArgumentException("Invalid format '" + json.t + "'");
+            }
             width = json.w;
             height = json.h;
         }
 
         public readonly int width;
         public readonly int height;
-        public readonly string t; // TODO: What is this thing ?
+        public readonly PageFormat format;
     }
 }
