@@ -21,16 +21,17 @@ namespace NHentaiSharp.UnitTests
         [Fact]
         public async Task SearchWithId()
         {
-            var res = (await new SearchClient()
+            var res = await new SearchClient()
                 .WithMax(1)
-                .ExecuteWithIdAsync(161194)).elements[0];
+                .ExecuteWithIdAsync(161194);
             Assert.Equal("[ユイザキカズヤ] つなかん。 (COMIC ポプリクラブ 2013年8月号) [英訳]", res.japaneseTitle);
             Assert.Equal("Tsuna-kan. | Tuna Can", res.prettyTitle);
             Assert.Equal("[Yuizaki Kazuya] Tsuna-kan. | Tuna Can (COMIC Potpourri Club 2013-08) [English] [PSYN]", res.englishTitle);
-            Assert.Equal("180413", res.uploadDate.ToString("yyMMdd"));
+            Assert.Equal("160413", res.uploadDate.ToString("yyMMdd"));
             Assert.Contains(19440, res.tags.Select(x => x.id));
             Assert.Equal(17, res.numPages);
             Assert.Equal(17, res.pages.Length);
+            Assert.Equal(161194, res.id);
         }
 
         [Fact]

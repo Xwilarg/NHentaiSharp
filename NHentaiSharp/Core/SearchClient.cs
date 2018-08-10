@@ -41,30 +41,25 @@ namespace NHentaiSharp.Core
             if (string.IsNullOrEmpty(allTags))
                 throw new Exception.EmptySearchException();
             using (HttpClient hc = new HttpClient())
-                return (ParseSearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search?query=" + allTags + "&page=" + page)).Content.ReadAsStringAsync())));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search?query=" + allTags + "&page=" + page)).Content.ReadAsStringAsync()), max));
         }
 
         public async Task<Search.SearchResult> ExecuteWithTagIdAsync(int id)
         {
             using (HttpClient hc = new HttpClient())
-                return (ParseSearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/tagged?tag_id=" + id + "&page=" + page)).Content.ReadAsStringAsync())));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/tagged?tag_id=" + id + "&page=" + page)).Content.ReadAsStringAsync()), max));
         }
 
-        public async Task<Search.SearchResult> ExecuteWithIdAsync(int id)
+        public async Task<Search.GalleryElement> ExecuteWithIdAsync(int id)
         {
             using (HttpClient hc = new HttpClient())
-                return (ParseSearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/" + id)).Content.ReadAsStringAsync())));
+                return (new Search.GalleryElement(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/gallery/" + id)).Content.ReadAsStringAsync())));
         }
 
         public async Task<Search.SearchResult> ExecuteAsync()
         {
             using (HttpClient hc = new HttpClient())
-                return (ParseSearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all&page=" + page)).Content.ReadAsStringAsync())));
-        }
-
-        private Search.SearchResult ParseSearchResult(dynamic json)
-        {
-            return (new Search.SearchResult(json, max));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all")).Content.ReadAsStringAsync()), max));
         }
 
         private int page;
