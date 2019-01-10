@@ -13,17 +13,13 @@ namespace NHentaiSharp.UnitTests
         public async Task SearchWithTagId()
         {
             Assert.Contains(29565,
-                (await new SearchClient()
-                .WithMax(1)
-                .ExecuteWithTagIdAsync(29565)).elements[0].tags.Select(x => x.id));
+                (await SearchClient.SearchWithTagIdAsync(29565, 1, 1)).elements[0].tags.Select(x => x.id));
         }
 
         [Fact]
         public async Task SearchWithId()
         {
-            var res = await new SearchClient()
-                .WithMax(1)
-                .ExecuteWithIdAsync(161194);
+            var res = await SearchClient.SearchWithIdAsync(161194);
             Assert.Equal("[ユイザキカズヤ] つなかん。 (COMIC ポプリクラブ 2013年8月号) [英訳]", res.japaneseTitle);
             Assert.Equal("Tsuna-kan. | Tuna Can", res.prettyTitle);
             Assert.Equal("[Yuizaki Kazuya] Tsuna-kan. | Tuna Can (COMIC Potpourri Club 2013-08) [English] [PSYN]", res.englishTitle);
@@ -37,12 +33,10 @@ namespace NHentaiSharp.UnitTests
         [Fact]
         public async Task SearchWithTags()
         {
-            string tags = "lolicon " + SearchClient.GetExactTag("full color") + " " +
-                SearchClient.GetCategoryTag("kantai", TagType.Parody) + " " +
-                SearchClient.GetExcludeTag("drugs") + " " + SearchClient.GetExcludeTag("rape");
-            var res = (await new SearchClient()
-                  .WithMax(1)
-                  .ExecuteWithTagsAsync(tags)).elements[0];
+            string[] tags = new string[] { "lolicon ", SearchClient.GetExactTag("full color"),
+                SearchClient.GetCategoryTag("kantai", TagType.Parody),
+                SearchClient.GetExcludeTag("drugs"), SearchClient.GetExcludeTag("rape") };
+            var res = (await SearchClient.SearchWithTagsAsync(tags, 1, 1)).elements[0];
             var ids = res.tags.Select(x => x.id);
             Assert.Contains(1841, ids);
             Assert.Contains(19440, ids);
@@ -55,9 +49,7 @@ namespace NHentaiSharp.UnitTests
         {
             await Assert.ThrowsAsync<EmptySearchException>(async delegate ()
             {
-                await new SearchClient()
-                    .WithMax(1)
-                    .ExecuteWithTagsAsync();
+                await SearchClient.SearchWithTagsAsync("");
             });
         }
 
@@ -65,9 +57,7 @@ namespace NHentaiSharp.UnitTests
         public async Task Search()
         {
 
-            Assert.NotEmpty((await new SearchClient()
-                .WithMax(1)
-                .ExecuteAsync()).elements);
+            Assert.NotEmpty((await SearchClient.SearchAsync()).elements);
         }
     }
 }
