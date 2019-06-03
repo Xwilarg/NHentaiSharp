@@ -29,9 +29,9 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search with specifics tags
         /// </summary>
-        public static async Task<Search.SearchResult> SearchWithTagsAsync(params string[] tags)
-            => await SearchWithTagsAsync(tags, 1, null);
-        public static async Task<Search.SearchResult> SearchWithTagsAsync(string[] tags, int page = 1, int? max = null)
+        public static async Task<Search.SearchResult> SearchByTagsAsync(params string[] tags)
+            => await SearchByTagsAsync(tags, 1, null);
+        public static async Task<Search.SearchResult> SearchByTagsAsync(string[] tags, int page = 1, int? max = null)
         {
             string allTags = string.Join(" ", tags);
             if (string.IsNullOrEmpty(allTags))
@@ -43,7 +43,7 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search with a specific tag id
         /// </summary>
-        public static async Task<Search.SearchResult> SearchWithTagIdAsync(int id, int page = 1, int? max = null)
+        public static async Task<Search.SearchResult> SearchByTagIdAsync(int id, int page = 1, int? max = null)
         {
             using (HttpClient hc = new HttpClient())
                 return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/tagged?tag_id=" + id + "&page=" + page)).Content.ReadAsStringAsync()), max));
@@ -52,7 +52,7 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search for a doujinshi given it id
         /// </summary>
-        public static async Task<Search.GalleryElement> SearchWithIdAsync(int id)
+        public static async Task<Search.GalleryElement> SearchByIdAsync(int id)
         {
             using (HttpClient hc = new HttpClient())
                 return (new Search.GalleryElement(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/gallery/" + id)).Content.ReadAsStringAsync())));

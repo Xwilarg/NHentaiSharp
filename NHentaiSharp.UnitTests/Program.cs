@@ -10,16 +10,16 @@ namespace NHentaiSharp.UnitTests
     public class Program
     {
         [Fact]
-        public async Task SearchWithTagId()
+        public async Task SearchByTagId()
         {
             Assert.Contains(29565,
-                (await SearchClient.SearchWithTagIdAsync(29565, 1, 1)).elements[0].tags.Select(x => x.id));
+                (await SearchClient.SearchByTagIdAsync(29565, 1, 1)).elements[0].tags.Select(x => x.id));
         }
 
         [Fact]
-        public async Task SearchWithId()
+        public async Task SearchById()
         {
-            var res = await SearchClient.SearchWithIdAsync(161194);
+            var res = await SearchClient.SearchByIdAsync(161194);
             Assert.Equal("[ユイザキカズヤ] つなかん。 (COMIC ポプリクラブ 2013年8月号) [英訳]", res.japaneseTitle);
             Assert.Equal("Tsuna-kan. | Tuna Can", res.prettyTitle);
             Assert.Equal("[Yuizaki Kazuya] Tsuna-kan. | Tuna Can (COMIC Potpourri Club 2013-08) [English] [PSYN]", res.englishTitle);
@@ -31,12 +31,12 @@ namespace NHentaiSharp.UnitTests
         }
 
         [Fact]
-        public async Task SearchWithTags()
+        public async Task SearchByTags()
         {
             string[] tags = new string[] { "lolicon ", SearchClient.GetExactTag("full color"),
                 SearchClient.GetCategoryTag("kantai", TagType.Parody),
                 SearchClient.GetExcludeTag("drugs"), SearchClient.GetExcludeTag("rape") };
-            var res = (await SearchClient.SearchWithTagsAsync(tags, 1, 1)).elements[0];
+            var res = (await SearchClient.SearchByTagsAsync(tags, 1, 1)).elements[0];
             var ids = res.tags.Select(x => x.id);
             Assert.Contains(1841, ids);
             Assert.Contains(19440, ids);
@@ -45,11 +45,11 @@ namespace NHentaiSharp.UnitTests
         }
 
         [Fact]
-        public async Task SearchWithEmptyTags()
+        public async Task SearchByEmptyTags()
         {
             await Assert.ThrowsAsync<EmptySearchException>(async delegate ()
             {
-                await SearchClient.SearchWithTagsAsync("");
+                await SearchClient.SearchByTagsAsync("");
             });
         }
 
