@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -33,7 +34,7 @@ namespace NHentaiSharp.Core
             => await SearchWithTagsAsync(tags, 1);
         public static async Task<Search.SearchResult> SearchWithTagsAsync(string[] tags, int page)
         {
-            string allTags = string.Join(" ", tags);
+            string allTags = Uri.EscapeDataString(string.Join(" ", tags));
             if (string.IsNullOrEmpty(allTags))
                 throw new Exception.EmptySearchException();
             using (HttpClient hc = new HttpClient())
