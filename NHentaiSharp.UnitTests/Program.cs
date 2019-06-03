@@ -28,10 +28,10 @@ namespace NHentaiSharp.UnitTests
             Assert.Equal(17, res.numPages);
             Assert.Equal(17, res.pages.Length);
             Assert.Equal(161194, res.id);
-            Assert.Equal("https://t.nhentai.net/galleries/923606/cover.png", res.cover.imageUrl);
-            Assert.Equal("https://t.nhentai.net/galleries/923606/thumb.png", res.thumbnail.imageUrl);
-            Assert.Equal("https://i.nhentai.net/galleries/923606/1.png", res.pages[0].imageUrl);
-            Assert.Equal("https://t.nhentai.net/galleries/923606/1t.png", res.pages[0].previewUrl);
+            Assert.Equal("https://t.nhentai.net/galleries/923606/cover.png", res.cover.imageUrl.AbsoluteUri);
+            Assert.Equal("https://t.nhentai.net/galleries/923606/thumb.png", res.thumbnail.imageUrl.AbsoluteUri);
+            Assert.Equal("https://i.nhentai.net/galleries/923606/1.png", res.pages[0].imageUrl.AbsoluteUri);
+            Assert.Equal("https://t.nhentai.net/galleries/923606/1t.png", res.pages[0].previewUrl.AbsoluteUri);
         }
 
         [Fact]
