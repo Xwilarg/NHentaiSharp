@@ -1,6 +1,17 @@
-## NHentaiSharp
+[![Build status](https://ci.appveyor.com/api/projects/status/ncmwvujaxi3te108/branch/master?svg=true)](https://ci.appveyor.com/project/Xwilarg/nhentaisharp/branch/master)
+[![NuGet](https://img.shields.io/nuget/v/NHentaiSharp.svg)](https://www.nuget.org/packages/NHentaiSharp/)
+[![codecov](https://codecov.io/gh/Xwilarg/NHentaiSharp/branch/master/graph/badge.svg)](https://codecov.io/gh/Xwilarg/NHentaiSharp)
+[![Unit tests](https://img.shields.io/appveyor/tests/xwilarg/nhentaisharp.svg)](https://ci.appveyor.com/project/Xwilarg/nhentaisharp/branch/master/tests)
+[![CodeFactor](https://www.codefactor.io/repository/github/xwilarg/nhentaisharp/badge)](https://www.codefactor.io/repository/github/xwilarg/nhentaisharp)
 
+## NHentaiSharp
 NHentaiSharp is a C# library to use NHentai.net API.
+
+### How to download it?
+You can download it from [NuGet](https://www.nuget.org/packages/NHentaiSharp) with the following command line:
+```
+Install-Package NHentaiSharp
+```
 
 ### Example: Getting a random doujinshi
 ```Cs
