@@ -13,9 +13,11 @@ namespace NHentaiSharp.Search
             prettyTitle = json.title.pretty;
             pages = new Page[json.images.pages.Count];
             for (int i = 0; i < json.images.pages.Count; i++)
-                pages[i] = new Page(json.images.pages[i]);
-            cover = new Page(json.images.cover);
-            thumbnail = new Page(json.images.thumbnail);
+                pages[i] = new Page(json.images.pages[i],
+                    "https://i.nhentai.net/galleries/" + mediaId + "/" + (i + 1) + ".",
+                    "https://t.nhentai.net/galleries/" + mediaId + "/" + (i + 1) + "t.");
+            cover = new Page(json.images.cover, "https://t.nhentai.net/galleries/" + mediaId + "/cover.");
+            thumbnail = new Page(json.images.thumbnail, "https://t.nhentai.net/galleries/" + mediaId + "/thumb.");
             numPages = json.num_pages;
             scanlator = json.scanlator;
             uploadDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds((double)json.upload_date);
