@@ -40,7 +40,7 @@ namespace NHentaiSharp.UnitTests
             string[] tags = new string[] { "lolicon ", SearchClient.GetExactTag("full color"),
                 SearchClient.GetCategoryTag("kantai", TagType.Parody),
                 SearchClient.GetExcludeTag("drugs"), SearchClient.GetExcludeTag("rape") };
-            var res = (await SearchClient.SearchByTagsAsync(tags, 1)).elements[0];
+            var res = (await SearchClient.SearchWithTagsAsync(tags, 1)).elements[0];
             var ids = res.tags.Select(x => x.id);
             Assert.Contains(1841, ids);
             Assert.Contains(19440, ids);
@@ -53,7 +53,7 @@ namespace NHentaiSharp.UnitTests
         {
             await Assert.ThrowsAsync<EmptySearchException>(async delegate ()
             {
-                await SearchClient.SearchByTagsAsync("");
+                await SearchClient.SearchWithTagsAsync("");
             });
         }
 

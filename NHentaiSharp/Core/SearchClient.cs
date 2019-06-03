@@ -29,9 +29,9 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search with specifics tags
         /// </summary>
-        public static async Task<Search.SearchResult> SearchByTagsAsync(params string[] tags)
-            => await SearchByTagsAsync(tags, 1);
-        public static async Task<Search.SearchResult> SearchByTagsAsync(string[] tags, int page)
+        public static async Task<Search.SearchResult> SearchWithTagsAsync(params string[] tags)
+            => await SearchWithTagsAsync(tags, 1);
+        public static async Task<Search.SearchResult> SearchWithTagsAsync(string[] tags, int page)
         {
             string allTags = string.Join(" ", tags);
             if (string.IsNullOrEmpty(allTags))
