@@ -30,23 +30,23 @@ namespace NHentaiSharp.Core
         /// Search with specifics tags
         /// </summary>
         public static async Task<Search.SearchResult> SearchByTagsAsync(params string[] tags)
-            => await SearchByTagsAsync(tags, 1, null);
-        public static async Task<Search.SearchResult> SearchByTagsAsync(string[] tags, int page = 1, int? max = null)
+            => await SearchByTagsAsync(tags, 1);
+        public static async Task<Search.SearchResult> SearchByTagsAsync(string[] tags, int page)
         {
             string allTags = string.Join(" ", tags);
             if (string.IsNullOrEmpty(allTags))
                 throw new Exception.EmptySearchException();
             using (HttpClient hc = new HttpClient())
-                return (new Search.SearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search?query=" + allTags + "&page=" + page)).Content.ReadAsStringAsync()), max));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await(await hc.GetAsync("https://nhentai.net/api/galleries/search?query=" + allTags + "&page=" + page)).Content.ReadAsStringAsync())));
         }
 
         /// <summary>
         /// Search with a specific tag id
         /// </summary>
-        public static async Task<Search.SearchResult> SearchByTagIdAsync(int id, int page = 1, int? max = null)
+        public static async Task<Search.SearchResult> SearchByTagIdAsync(int id, int page = 1)
         {
             using (HttpClient hc = new HttpClient())
-                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/tagged?tag_id=" + id + "&page=" + page)).Content.ReadAsStringAsync()), max));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/tagged?tag_id=" + id + "&page=" + page)).Content.ReadAsStringAsync())));
         }
 
         /// <summary>
@@ -61,10 +61,10 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search without any tag
         /// </summary>
-        public static async Task<Search.SearchResult> SearchAsync(int? max = null)
+        public static async Task<Search.SearchResult> SearchAsync()
         {
             using (HttpClient hc = new HttpClient())
-                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all")).Content.ReadAsStringAsync()), max));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all")).Content.ReadAsStringAsync())));
         }
     }
 }

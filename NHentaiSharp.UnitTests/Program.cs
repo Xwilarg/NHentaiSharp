@@ -13,7 +13,7 @@ namespace NHentaiSharp.UnitTests
         public async Task SearchByTagId()
         {
             Assert.Contains(29565,
-                (await SearchClient.SearchByTagIdAsync(29565, 1, 1)).elements[0].tags.Select(x => x.id));
+                (await SearchClient.SearchByTagIdAsync(29565, 1)).elements[0].tags.Select(x => x.id));
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace NHentaiSharp.UnitTests
             string[] tags = new string[] { "lolicon ", SearchClient.GetExactTag("full color"),
                 SearchClient.GetCategoryTag("kantai", TagType.Parody),
                 SearchClient.GetExcludeTag("drugs"), SearchClient.GetExcludeTag("rape") };
-            var res = (await SearchClient.SearchByTagsAsync(tags, 1, 1)).elements[0];
+            var res = (await SearchClient.SearchByTagsAsync(tags, 1)).elements[0];
             var ids = res.tags.Select(x => x.id);
             Assert.Contains(1841, ids);
             Assert.Contains(19440, ids);
