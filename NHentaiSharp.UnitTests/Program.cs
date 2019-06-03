@@ -32,6 +32,7 @@ namespace NHentaiSharp.UnitTests
             Assert.Equal("https://t.nhentai.net/galleries/923606/thumb.png", res.thumbnail.imageUrl.AbsoluteUri);
             Assert.Equal("https://i.nhentai.net/galleries/923606/1.png", res.pages[0].imageUrl.AbsoluteUri);
             Assert.Equal("https://t.nhentai.net/galleries/923606/1t.png", res.pages[0].previewUrl.AbsoluteUri);
+            Assert.Equal("https://nhentai.net/g/161194", res.url.AbsoluteUri);
         }
 
         [Fact]

@@ -25,6 +25,7 @@ namespace NHentaiSharp.Search
             for (int i = 0; i < json.tags.Count; i++)
                 tags[i] = new Tag(json.tags[i]);
             numFavorites = json.num_favorites;
+            url = new Uri("https://nhentai.net/g/" + id);
         }
 
         public readonly long id;
@@ -40,5 +41,6 @@ namespace NHentaiSharp.Search
         public readonly DateTime uploadDate;
         public readonly Tag[] tags;
         public readonly int numFavorites;
+        public readonly Uri url;
     }
 }
