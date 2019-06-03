@@ -1,6 +1,6 @@
 ## NHentaiSharp
 
-NHentaiSharp is a C# library to use nhentai.net API.
+NHentaiSharp is a C# library to use NHentai.net API.
 
 ### Example: Getting a random doujinshi
 ```Cs
