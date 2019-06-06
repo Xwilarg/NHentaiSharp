@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Core\SearchClient.cs" />
     <Compile Include="Exception\EmptySearchException.cs" />
+    <Compile Include="Exception\InvalidArgumentException.cs" />
     <Compile Include="Search\PageFormat.cs" />
     <Compile Include="Search\SearchResult.cs" />
     <Compile Include="Search\TagType.cs" />
