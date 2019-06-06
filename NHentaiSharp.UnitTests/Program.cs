@@ -59,6 +59,15 @@ namespace NHentaiSharp.UnitTests
         }
 
         [Fact]
+        public async Task SearchWithInvalidTags()
+        {
+            await Assert.ThrowsAsync<InvalidArgumentException>(async delegate ()
+            {
+                await SearchClient.SearchWithTagsAsync("aaaaaaaaaaaaaaaa");
+            });
+        }
+
+        [Fact]
         public async Task Search()
         {
 
