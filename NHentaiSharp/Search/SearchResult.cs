@@ -6,7 +6,7 @@ namespace NHentaiSharp.Search
     {
         public SearchResult(dynamic json)
         {
-            if (json.error == null || json.result.Count == 0)
+            if (json.error != null || json.result.Count == 0)
                 throw new InvalidArgumentException();
             elements = new GalleryElement[json.result.Count];
             for (int i = 0; i < json.result.Count; i++)
