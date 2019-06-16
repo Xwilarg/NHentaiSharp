@@ -20,6 +20,12 @@ namespace NHentaiSharp.Search
                     urlPreview += "png";
                     break;
 
+                case "g":
+                    format = PageFormat.GIF;
+                    urlBase += "gif";
+                    urlPreview += "gif";
+                    break;
+
                 default:
                     throw new ArgumentException("Invalid format '" + json.t + "'");
             }
@@ -41,6 +47,11 @@ namespace NHentaiSharp.Search
                 case "p":
                     format = PageFormat.PNG;
                     urlBase += "png";
+                    break;
+
+                case "g":
+                    format = PageFormat.GIF;
+                    urlBase += "gif";
                     break;
 
                 default:

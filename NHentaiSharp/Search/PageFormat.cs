@@ -3,6 +3,7 @@
     public enum PageFormat
     {
         JPG,
-        PNG
+        PNG,
+        GIF
     }
 }
