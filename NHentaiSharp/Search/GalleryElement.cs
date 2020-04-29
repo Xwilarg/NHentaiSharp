@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHentaiSharp.Exception;
+using System;
 
 namespace NHentaiSharp.Search
 {
@@ -6,6 +7,8 @@ namespace NHentaiSharp.Search
     {
         public GalleryElement(dynamic json)
         {
+            if (json.error == true)
+                throw new InvalidArgumentException();
             id = json.id;
             mediaId = json.media_id;
             englishTitle = json.title.english;

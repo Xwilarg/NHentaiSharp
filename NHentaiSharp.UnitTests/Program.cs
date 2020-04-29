@@ -70,8 +70,16 @@ namespace NHentaiSharp.UnitTests
         [Fact]
         public async Task Search()
         {
-
             Assert.NotEmpty((await SearchClient.SearchAsync()).elements);
+        }
+
+        [Fact]
+        public async Task SearchWithInvalidId()
+        {
+            await Assert.ThrowsAsync<InvalidArgumentException>(async delegate ()
+            {
+                await SearchClient.SearchByIdAsync(2000000);
+            });
         }
     }
 }

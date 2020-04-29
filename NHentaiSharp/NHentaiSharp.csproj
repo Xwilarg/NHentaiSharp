@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <Authors>Xwilarg</Authors>
     <Company />
     <Description>NHentaiSharp is a C# library to use NHentai.net API</Description>
@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/Xwilarg/NHentaiSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Xwilarg/NHentaiSharp</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>
-    <PackageReleaseNotes>Port project to .NET Standard</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix crash when doing a search with invalid ID</PackageReleaseNotes>
     <PackageTags>NHentai NHentai-API Doujinshi</PackageTags>
   </PropertyGroup>
 
