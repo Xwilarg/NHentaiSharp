@@ -17,7 +17,7 @@ namespace NHentaiSharp.Core
         /// Get a tag for a specific category
         /// </summary>
         public static string GetCategoryTag(string tag, Search.TagType type)
-            => type.ToString().ToLower().Replace("y", "ie") + "s:" + tag;
+            => type.ToString().ToLower() + ":" + tag;
 
         /// <summary>
         /// Get a tag to exclude

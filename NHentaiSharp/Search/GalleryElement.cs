@@ -7,7 +7,7 @@ namespace NHentaiSharp.Search
     {
         public GalleryElement(dynamic json)
         {
-            if (json.error == true)
+            if (json.error != null)
                 throw new InvalidArgumentException();
             id = json.id;
             mediaId = json.media_id;
