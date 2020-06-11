@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.8</Version>
+    <Version>1.1.0</Version>
     <Authors>Xwilarg</Authors>
     <Company />
     <Description>NHentaiSharp is a C# library to use NHentai.net API</Description>
@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/Xwilarg/NHentaiSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Xwilarg/NHentaiSharp</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>
-    <PackageReleaseNotes>Fix crashes</PackageReleaseNotes>
+    <PackageReleaseNotes>Add popularity sort</PackageReleaseNotes>
     <PackageTags>NHentai NHentai-API Doujinshi</PackageTags>
   </PropertyGroup>
 

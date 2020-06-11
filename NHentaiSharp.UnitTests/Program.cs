@@ -81,5 +81,13 @@ namespace NHentaiSharp.UnitTests
                 await SearchClient.SearchByIdAsync(2000000);
             });
         }
+
+        [Fact]
+        public async Task SearchByTagsWithSort()
+        {
+            var res = (await SearchClient.SearchWithTagsAsync(new[] { "lolicon" }, 1)).elements[0];
+            var res2 = (await SearchClient.SearchWithTagsAsync(new[] { "lolicon" }, 1, PopularitySort.AllTime)).elements[0];
+            Assert.NotEqual(res.id, res2.id);
+        }
     }
 }
