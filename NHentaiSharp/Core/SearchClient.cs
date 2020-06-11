@@ -62,10 +62,10 @@ namespace NHentaiSharp.Core
         /// <summary>
         /// Search without any tag
         /// </summary>
-        public static async Task<Search.SearchResult> SearchAsync(int page = 1, PopularitySort sortOption = PopularitySort.None)
+        public static async Task<Search.SearchResult> SearchAsync(int page = 1)
         {
             using (HttpClient hc = new HttpClient())
-                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all?page=" + page + GetSortInfo(sortOption))).Content.ReadAsStringAsync())));
+                return (new Search.SearchResult(JsonConvert.DeserializeObject(await (await hc.GetAsync("https://nhentai.net/api/galleries/all?page=" + page)).Content.ReadAsStringAsync())));
         }
 
         private static string GetSortInfo(PopularitySort sortOption)

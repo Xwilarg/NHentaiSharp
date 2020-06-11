@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/Xwilarg/NHentaiSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Xwilarg/NHentaiSharp</RepositoryUrl>
     <RepositoryType>Library</RepositoryType>
-    <PackageReleaseNotes>Add popularity sort</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <PackageTags>NHentai NHentai-API Doujinshi</PackageTags>
   </PropertyGroup>
 
