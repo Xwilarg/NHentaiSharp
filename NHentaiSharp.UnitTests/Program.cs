@@ -68,6 +68,13 @@ namespace NHentaiSharp.UnitTests
         }
 
         [Fact]
+        public async Task SearchWithInvalidPage()
+        {
+            var result = await SearchClient.SearchByIdAsync(155974);
+            Assert.Equal(PageFormat.INVALID, result.pages[1].format);
+        }
+
+        [Fact]
         public async Task Search()
         {
             Assert.NotEmpty((await SearchClient.SearchAsync()).elements);
