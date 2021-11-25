@@ -26,6 +26,10 @@ namespace NHentaiSharp.Search
                     urlPreview += "gif";
                     break;
 
+                case "0":
+                    format = PageFormat.INVALID;
+                    break;
+
                 default:
                     throw new ArgumentException("Invalid format '" + json.t + "'");
             }

@@ -4,6 +4,8 @@
     {
         JPG,
         PNG,
-        GIF
+        GIF,
+
+        INVALID = -1
     }
 }
